@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services.Cargo.DtoLayer", "Services\Cargo\MicroserviceAralik.Services.Cargo.DtoLayer\MicroserviceAralik.Services.Cargo.DtoLayer.csproj", "{DCF37020-F2DC-442B-8B83-7ED14777438A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services.Cargo.WebApi", "Services\Cargo\MicroserviceAralik.Services.Cargo.WebApi\MicroserviceAralik.Services.Cargo.WebApi.csproj", "{D30C5686-D504-4695-B80F-A134AF3378BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{DCF37020-F2DC-442B-8B83-7ED14777438A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCF37020-F2DC-442B-8B83-7ED14777438A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCF37020-F2DC-442B-8B83-7ED14777438A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30C5686-D504-4695-B80F-A134AF3378BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30C5686-D504-4695-B80F-A134AF3378BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30C5686-D504-4695-B80F-A134AF3378BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30C5686-D504-4695-B80F-A134AF3378BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,5 +112,6 @@ Global
 		{C59C2BC8-D2D5-44A5-9997-A9445FAD03CC} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
 		{A0178511-0A8E-4FCF-94DD-7D3AA8919D68} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
 		{DCF37020-F2DC-442B-8B83-7ED14777438A} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
+		{D30C5686-D504-4695-B80F-A134AF3378BE} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
 	EndGlobalSection
 EndGlobal
