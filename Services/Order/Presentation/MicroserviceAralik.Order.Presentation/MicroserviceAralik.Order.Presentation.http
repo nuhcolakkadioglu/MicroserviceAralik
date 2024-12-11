@@ -1,6 +1,50 @@
-@MicroserviceAralik.Order.Presentation_HostAddress = http://localhost:5151
+@MicroserviceAralik.Order.Presentation_HostAddress = https://localhost:7128
 
-GET {{MicroserviceAralik.Order.Presentation_HostAddress}}/weatherforecast/
-Accept: application/json
+
+
+GET {{MicroserviceAralik.Order.Presentation_HostAddress}}/api/addresses
+
+###
+
+POST {{MicroserviceAralik.Order.Presentation_HostAddress}}/api/addresses
+Content-Type: application/json
+
+{
+  "userId": "1",
+  "title": "Ev Adresi",
+  "name": "Nuh",
+  "surname": "ÇOLAKKADIOÐLU",
+  "province": "Ankara",
+  "city": "Etimesgut",
+  "country": "YOK",
+  "zipCode": "0625222",
+  "description": "ev adresim için sipariþler"
+}
+###
+
+@id=1
+DELETE {{MicroserviceAralik.Order.Presentation_HostAddress}}/api/addresses/{{id}}
+
+###
+
+GET {{MicroserviceAralik.Order.Presentation_HostAddress}}/api/addresses/{{id}}
+
+###
+
+PUT {{MicroserviceAralik.Order.Presentation_HostAddress}}/api/addresses
+Content-Type: application/json
+
+{
+    "id":"1",
+  "userId": "1",
+  "title": "Ev Adresi",
+  "name": "Nuh",
+  "surname": "ÇOLAKKADIOÐLU",
+  "province": "Ankara",
+  "city": "Etimesgut",
+  "country": "YOK",
+  "zipCode": "0625222",
+  "description": "ev adresim için sipariþler"
+}
 
 ###
