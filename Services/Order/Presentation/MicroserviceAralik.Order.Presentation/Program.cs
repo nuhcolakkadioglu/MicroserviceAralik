@@ -1,15 +1,17 @@
+using MicroserviceAralik.Order.Persistence.Configurations;
+using MicroserviceAralik.Order.Application.Services;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddGenericServices();
+builder.Services.AddMediator();
+builder.Services.AddAutoMapper();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 WebApplication app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
