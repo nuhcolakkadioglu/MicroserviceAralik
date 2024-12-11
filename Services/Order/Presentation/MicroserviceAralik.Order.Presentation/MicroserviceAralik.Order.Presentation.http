@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 ###
 
-@id=1
+@id=2
 DELETE {{MicroserviceAralik.Order.Presentation_HostAddress}}/api/addresses/{{id}}
 
 ###
@@ -37,7 +37,7 @@ Content-Type: application/json
 {
     "id":"1",
   "userId": "1",
-  "title": "Ev Adresi",
+  "title": "Ev Adresi up",
   "name": "Nuh",
   "surname": "ÇOLAKKADIOÐLU",
   "province": "Ankara",
