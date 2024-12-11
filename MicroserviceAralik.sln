@@ -28,6 +28,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Order.Pe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Order.Presentation", "Services\Order\Presentation\MicroserviceAralik.Order.Presentation\MicroserviceAralik.Order.Presentation.csproj", "{ABAC4B3C-BE49-4DD9-8BE8-2025CCBFCEA7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdendityServer", "IdendityServer", "{5B8BCC22-F505-4625-B97E-1909E17542E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cargo", "Cargo", "{D373C509-BE47-4D11-A951-92EAD7AF3288}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services.Cargo.EntityLayer", "Services\Cargo\MicroserviceAralik.Services.Cargo.EntityLayer\MicroserviceAralik.Services.Cargo.EntityLayer.csproj", "{C4DDEF6F-74A2-4800-9646-D42DC15AA787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services.Cargo.DataAccessLayer", "Services\Cargo\MicroserviceAralik.Services.Cargo.DataAccessLayer\MicroserviceAralik.Services.Cargo.DataAccessLayer.csproj", "{C59C2BC8-D2D5-44A5-9997-A9445FAD03CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services.Cargo.BusinessLayer", "Services\Cargo\MicroserviceAralik.Services.Cargo.BusinessLayer\MicroserviceAralik.Services.Cargo.BusinessLayer.csproj", "{A0178511-0A8E-4FCF-94DD-7D3AA8919D68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services.Cargo.DtoLayer", "Services\Cargo\MicroserviceAralik.Services.Cargo.DtoLayer\MicroserviceAralik.Services.Cargo.DtoLayer.csproj", "{DCF37020-F2DC-442B-8B83-7ED14777438A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services.Cargo.WebApi", "Services\Cargo\MicroserviceAralik.Services.Cargo.WebApi\MicroserviceAralik.Services.Cargo.WebApi.csproj", "{D30C5686-D504-4695-B80F-A134AF3378BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.IdentityServer", "IdendityServer\MicroserviceAralik.IdentityServer\MicroserviceAralik.IdentityServer.csproj", "{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +74,30 @@ Global
 		{ABAC4B3C-BE49-4DD9-8BE8-2025CCBFCEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABAC4B3C-BE49-4DD9-8BE8-2025CCBFCEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABAC4B3C-BE49-4DD9-8BE8-2025CCBFCEA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4DDEF6F-74A2-4800-9646-D42DC15AA787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4DDEF6F-74A2-4800-9646-D42DC15AA787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4DDEF6F-74A2-4800-9646-D42DC15AA787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4DDEF6F-74A2-4800-9646-D42DC15AA787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59C2BC8-D2D5-44A5-9997-A9445FAD03CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59C2BC8-D2D5-44A5-9997-A9445FAD03CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59C2BC8-D2D5-44A5-9997-A9445FAD03CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59C2BC8-D2D5-44A5-9997-A9445FAD03CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0178511-0A8E-4FCF-94DD-7D3AA8919D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0178511-0A8E-4FCF-94DD-7D3AA8919D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0178511-0A8E-4FCF-94DD-7D3AA8919D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0178511-0A8E-4FCF-94DD-7D3AA8919D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCF37020-F2DC-442B-8B83-7ED14777438A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF37020-F2DC-442B-8B83-7ED14777438A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF37020-F2DC-442B-8B83-7ED14777438A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF37020-F2DC-442B-8B83-7ED14777438A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30C5686-D504-4695-B80F-A134AF3378BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30C5686-D504-4695-B80F-A134AF3378BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30C5686-D504-4695-B80F-A134AF3378BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30C5686-D504-4695-B80F-A134AF3378BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +113,12 @@ Global
 		{0C73A665-E688-48A3-920E-4A3CECAC7341} = {7D92552E-51B8-43D0-9676-5CDD447F707C}
 		{8600F787-2D0D-4A86-9CA6-B40F1CC4325F} = {4B7E4C4F-4C87-4BC7-AE2E-94F7AC1DC7D5}
 		{ABAC4B3C-BE49-4DD9-8BE8-2025CCBFCEA7} = {0B2A3A44-C3F2-4671-91C5-A87BEC7FC75E}
+		{D373C509-BE47-4D11-A951-92EAD7AF3288} = {199C6B26-AF0E-46A8-8C77-1983A6140C75}
+		{C4DDEF6F-74A2-4800-9646-D42DC15AA787} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
+		{C59C2BC8-D2D5-44A5-9997-A9445FAD03CC} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
+		{A0178511-0A8E-4FCF-94DD-7D3AA8919D68} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
+		{DCF37020-F2DC-442B-8B83-7ED14777438A} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
+		{D30C5686-D504-4695-B80F-A134AF3378BE} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B} = {5B8BCC22-F505-4625-B97E-1909E17542E1}
 	EndGlobalSection
 EndGlobal
