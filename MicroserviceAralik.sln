@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services.Cargo.WebApi", "Services\Cargo\MicroserviceAralik.Services.Cargo.WebApi\MicroserviceAralik.Services.Cargo.WebApi.csproj", "{D30C5686-D504-4695-B80F-A134AF3378BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.IdentityServer", "IdendityServer\MicroserviceAralik.IdentityServer\MicroserviceAralik.IdentityServer.csproj", "{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,10 @@ Global
 		{D30C5686-D504-4695-B80F-A134AF3378BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D30C5686-D504-4695-B80F-A134AF3378BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D30C5686-D504-4695-B80F-A134AF3378BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,5 +119,6 @@ Global
 		{A0178511-0A8E-4FCF-94DD-7D3AA8919D68} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
 		{DCF37020-F2DC-442B-8B83-7ED14777438A} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
 		{D30C5686-D504-4695-B80F-A134AF3378BE} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
+		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B} = {5B8BCC22-F505-4625-B97E-1909E17542E1}
 	EndGlobalSection
 EndGlobal
