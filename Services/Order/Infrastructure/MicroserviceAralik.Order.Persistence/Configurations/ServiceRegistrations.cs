@@ -14,9 +14,8 @@ public static class ServiceRegistrations
     public static void AddGenericServices(this IServiceCollection services)
     {
         services.AddDbContext<AppDbContext>();
-         services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
-         services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+        services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
+        services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
 
     }
 }
- 

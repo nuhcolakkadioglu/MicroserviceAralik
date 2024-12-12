@@ -10,4 +10,8 @@
     <ProjectReference Include="..\MicroserviceAralik.Services.Cargo.DataAccessLayer\MicroserviceAralik.Services.Cargo.DataAccessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

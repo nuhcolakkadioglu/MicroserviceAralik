@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace MicroserviceAralik.Order.Application.Services;
 public static class MediatorService
 {
-    public static void AddMediator(this  IServiceCollection services)
+    public static void AddMediator(this IServiceCollection services)
     {
         services.AddMediatR(opt => opt.RegisterServicesFromAssembly(typeof(MediatorService).Assembly));
 

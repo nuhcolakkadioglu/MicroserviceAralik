@@ -7,6 +7,6 @@ using MediatR;
 using MicroserviceAralik.Order.Application.Features.Mediator.Results.OrderDetailResults;
 
 namespace MicroserviceAralik.Order.Application.Features.Mediator.Queries.OrderDetailQueries;
-public class GetOrderDetailQuery:IRequest<List<GetOrderDetailQueryResult>>
+public class GetOrderDetailQuery : IRequest<List<GetOrderDetailQueryResult>>
 {
 }

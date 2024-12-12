@@ -2,15 +2,15 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Services;
-using IdentityServer4.Stores;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
+using IdentityServer4.Services;
+using IdentityServer4.Stores;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServerHost.Quickstart.UI
 {
@@ -61,17 +61,17 @@ namespace IdentityServerHost.Quickstart.UI
 
         private async Task<GrantsViewModel> BuildViewModelAsync()
         {
-            var grants = await _interaction.GetAllUserGrantsAsync();
+            IEnumerable<IdentityServer4.Models.Grant> grants = await _interaction.GetAllUserGrantsAsync();
 
-            var list = new List<GrantViewModel>();
-            foreach(var grant in grants)
+            List<GrantViewModel> list = new List<GrantViewModel>();
+            foreach (IdentityServer4.Models.Grant grant in grants)
             {
-                var client = await _clients.FindClientByIdAsync(grant.ClientId);
+                IdentityServer4.Models.Client client = await _clients.FindClientByIdAsync(grant.ClientId);
                 if (client != null)
                 {
-                    var resources = await _resources.FindResourcesByScopeAsync(grant.Scopes);
+                    IdentityServer4.Models.Resources resources = await _resources.FindResourcesByScopeAsync(grant.Scopes);
 
-                    var item = new GrantViewModel()
+                    GrantViewModel item = new GrantViewModel()
                     {
                         ClientId = client.ClientId,
                         ClientName = client.ClientName ?? client.ClientId,

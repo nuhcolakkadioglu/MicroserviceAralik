@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 using MicroserviceAralik.Services.Cargo.EntityLayer.Concrete;
 
 namespace MicroserviceAralik.Services.Cargo.DataAccessLayer.Abstract;
-public interface ICompanyDal: IGenericDal<Company>
+public interface ICompanyDal : IGenericDal<Company>
 {
 }

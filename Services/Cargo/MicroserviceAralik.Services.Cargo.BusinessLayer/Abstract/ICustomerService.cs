@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MicroserviceAralik.Services.Cargo.EntityLayer.Concrete;
 
-namespace MicroserviceAralik.Services.Cargo.DataAccessLayer.Abstract;
-public interface ICustomerDal : IGenericDal<Customer>
+namespace MicroserviceAralik.Services.Cargo.BusinessLayer.Abstract;
+public interface ICustomerService : IGenericService<Customer>
 {
 }

@@ -14,7 +14,7 @@ public class CreateOrderingCommandHandler(IWriteRepository<Ordering> _writeRepos
 {
     public async Task Handle(CreateOrderingCommand request, CancellationToken cancellationToken)
     {
-        var map = _mapper.Map<Ordering>(request);
+        Ordering map = _mapper.Map<Ordering>(request);
         await _writeRepository.CreateAsync(map);
     }
 }

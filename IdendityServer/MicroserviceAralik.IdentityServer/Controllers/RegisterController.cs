@@ -23,7 +23,7 @@ namespace MicroserviceAralik.IdentityServer.Controllers
         public async Task<IActionResult> RegisterUser(UserRegistrationDtoo model)
         {
 
-            var result = await _userManager.CreateAsync(new ApplicationUser
+            IdentityResult result = await _userManager.CreateAsync(new ApplicationUser
             {
                 UserName = model.Username,
                 Email = model.Email,
@@ -32,8 +32,8 @@ namespace MicroserviceAralik.IdentityServer.Controllers
             }, model.Password);
 
 
-            if(!result.Succeeded) 
-                return BadRequest(result.Errors.Select(m=>m.Description));
+            if (!result.Succeeded)
+                return BadRequest(result.Errors.Select(m => m.Description));
 
             return Ok(result.Succeeded);
         }

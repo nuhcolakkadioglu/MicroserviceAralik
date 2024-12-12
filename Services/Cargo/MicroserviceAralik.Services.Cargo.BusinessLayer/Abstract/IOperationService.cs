@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MicroserviceAralik.Services.Cargo.EntityLayer.Concrete;
 
-namespace MicroserviceAralik.Services.Cargo.DataAccessLayer.Abstract;
-public interface IOperationDal : IGenericDal<Operation>
+namespace MicroserviceAralik.Services.Cargo.BusinessLayer.Abstract;
+public interface IOperationService : IGenericService<Operation>
 {
     Task<List<Operation>> GetOperationByBarcodeNumber(string barcode);
 }

@@ -13,6 +13,6 @@ public class RemoveAddressCommandHandler(IWriteRepository<Address> _writeReposit
 {
     public async Task Handle(RemoveAddressCommand request, CancellationToken cancellationToken)
     {
-         await _writeRepository.DeleteAsync(request.Id);
+        await _writeRepository.DeleteAsync(request.Id);
     }
 }

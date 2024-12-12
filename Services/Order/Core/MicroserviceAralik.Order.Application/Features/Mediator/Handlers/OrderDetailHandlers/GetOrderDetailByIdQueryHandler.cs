@@ -15,8 +15,8 @@ public class GetOrderDetailByIdQueryHandler(IReadRepository<OrderDetail> _readRe
 {
     public async Task<GetOrderDetailByIdQueryResult> Handle(GetOrderDetailByIdQuery request, CancellationToken cancellationToken)
     {
-        var data = await _readRepository.GetByIdAsync(request.Id);
-        var map = _mapper.Map<GetOrderDetailByIdQueryResult>(data);
+        OrderDetail data = await _readRepository.GetByIdAsync(request.Id);
+        GetOrderDetailByIdQueryResult map = _mapper.Map<GetOrderDetailByIdQueryResult>(data);
 
         return map;
     }

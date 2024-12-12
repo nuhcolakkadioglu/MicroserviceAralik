@@ -18,8 +18,8 @@ public class AppDbContext : DbContext
     {
 
         modelBuilder.Entity<Customer>()
-                 .HasMany(m => m.SentCargoDetails).WithOne(m => m.SenderCustomer).HasForeignKey(m => m.SenderCustomerId);  
-        
+                 .HasMany(m => m.SentCargoDetails).WithOne(m => m.SenderCustomer).HasForeignKey(m => m.SenderCustomerId);
+
         modelBuilder.Entity<Customer>()
                  .HasMany(m => m.ReceivedCargoDetails).WithOne(m => m.ReceiverCustomer).HasForeignKey(m => m.ReceiverCustomerId);
 

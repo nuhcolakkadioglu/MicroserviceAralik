@@ -14,7 +14,7 @@ public class AddressesController(IMediator _mediator) : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllAddresses()
     {
-        var result = await _mediator.Send(new GetAddressQuery());
+        List<Application.Features.Mediator.Results.AddresResults.GetAddressQueryResult> result = await _mediator.Send(new GetAddressQuery());
 
         return Ok(result);
     }
@@ -22,7 +22,7 @@ public class AddressesController(IMediator _mediator) : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAddressById(int id)
     {
-        var result = await _mediator.Send(new GetAddressByIdQuery(id));
+        Application.Features.Mediator.Results.AddresResults.GetAdressByIdQueryResult result = await _mediator.Send(new GetAddressByIdQuery(id));
 
         return Ok(result);
     }
@@ -44,7 +44,7 @@ public class AddressesController(IMediator _mediator) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> RemoveAddress( int id)
+    public async Task<IActionResult> RemoveAddress(int id)
     {
         await _mediator.Send(new RemoveAddressCommand(id));
 

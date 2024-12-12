@@ -14,7 +14,7 @@ public class OrderDetailsController(IMediator _mediator) : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllOrderDetails()
     {
-        var result = await _mediator.Send(new GetOrderDetailQuery());
+        List<Application.Features.Mediator.Results.OrderDetailResults.GetOrderDetailQueryResult> result = await _mediator.Send(new GetOrderDetailQuery());
 
         return Ok(result);
     }
@@ -22,7 +22,7 @@ public class OrderDetailsController(IMediator _mediator) : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetOrderDetailById(int id)
     {
-        var result = await _mediator.Send(new GetOrderDetailByIdQuery(id));
+        Application.Features.Mediator.Results.OrderDetailResults.GetOrderDetailByIdQueryResult result = await _mediator.Send(new GetOrderDetailByIdQuery(id));
 
         return Ok(result);
     }
@@ -44,7 +44,7 @@ public class OrderDetailsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> RemoveOrderDetail( int id)
+    public async Task<IActionResult> RemoveOrderDetail(int id)
     {
         await _mediator.Send(new RemoveOrderDetailCommand(id));
 

@@ -15,8 +15,8 @@ public class GetOrderingQueryHandler(IReadRepository<Ordering> _readRepository, 
 {
     public async Task<List<GetOrderingQueryResult>> Handle(GetOrderingQuery request, CancellationToken cancellationToken)
     {
-        var data = await _readRepository.GetAllAsync();
-        var mapData = _mapper.Map<List<GetOrderingQueryResult>>(data);
+        List<Ordering> data = await _readRepository.GetAllAsync();
+        List<GetOrderingQueryResult> mapData = _mapper.Map<List<GetOrderingQueryResult>>(data);
         return mapData;
     }
 }

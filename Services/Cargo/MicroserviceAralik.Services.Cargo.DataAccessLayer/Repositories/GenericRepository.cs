@@ -8,7 +8,7 @@ using MicroserviceAralik.Services.Cargo.DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace MicroserviceAralik.Services.Cargo.DataAccessLayer.Repositories;
-public class GenericRepository<T>  : IGenericDal<T> where T : class
+public class GenericRepository<T> : IGenericDal<T> where T : class
 {
     protected readonly AppDbContext _context;
 
@@ -26,7 +26,7 @@ public class GenericRepository<T>  : IGenericDal<T> where T : class
     public async Task DeleteAsync(int id)
     {
 
-        var data = await _context.Set<T>().FindAsync(id);
+        T? data = await _context.Set<T>().FindAsync(id);
         _context.Set<T>().Remove(data);
         await _context.SaveChangesAsync();
 

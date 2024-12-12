@@ -14,8 +14,8 @@ public class UpdateOrderingCommandHandler(IWriteRepository<Ordering> _writeRepos
 {
     public async Task Handle(UpdateOrderingCommand request, CancellationToken cancellationToken)
     {
-        var value = await _readRepository.GetByIdAsync(request.Id);
-        var map = _mapper.Map(request,value);
+        Ordering value = await _readRepository.GetByIdAsync(request.Id);
+        Ordering map = _mapper.Map(request, value);
         await _writeRepository.UpdateAsync(map);
     }
 }

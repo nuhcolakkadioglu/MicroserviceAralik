@@ -1,5 +1,5 @@
-using MicroserviceAralik.Order.Persistence.Configurations;
 using MicroserviceAralik.Order.Application.Services;
+using MicroserviceAralik.Order.Persistence.Configurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

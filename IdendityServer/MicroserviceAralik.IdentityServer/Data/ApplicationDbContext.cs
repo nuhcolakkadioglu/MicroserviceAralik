@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using MicroserviceAralık.IdentityServer.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MicroserviceAralık.IdentityServer.Models;
 
 namespace MicroserviceAralık.IdentityServer.Data
 {

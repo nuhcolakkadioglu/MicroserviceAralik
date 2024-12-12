@@ -12,7 +12,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
     });
 
-        
+
 
 builder.Services.RegisteritaionService(builder.Configuration);
 

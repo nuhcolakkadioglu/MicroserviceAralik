@@ -2,10 +2,10 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Collections.Generic;
 using IdentityServer4;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
 
 namespace MicroserviceAralık.IdentityServer
 {
@@ -50,7 +50,7 @@ namespace MicroserviceAralık.IdentityServer
 
             new ApiScope("OrderReadPermission","Read Access To Order Resource"),
             new ApiScope("OrderFullPermission","Full Access To Order Resource"),
-            
+
             new ApiScope("CargoReadPermission","Read Access To Cargo Resource"),
             new ApiScope("CargoFullPermission","Full Access To Cargo Resource"),
 

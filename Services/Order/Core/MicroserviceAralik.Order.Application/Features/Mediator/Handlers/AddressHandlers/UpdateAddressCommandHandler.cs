@@ -15,8 +15,8 @@ public class UpdateAddressCommandHandler(IReadRepository<Address> _readRepositor
     public async Task Handle(UpdateAddressCommand request, CancellationToken cancellationToken)
     {
 
-        var value = await _readRepository.GetByIdAsync(request.Id);
-        var map = _mapper.Map(request, value);
+        Address value = await _readRepository.GetByIdAsync(request.Id);
+        Address map = _mapper.Map(request, value);
 
         await _writeRepository.UpdateAsync(map);
     }
