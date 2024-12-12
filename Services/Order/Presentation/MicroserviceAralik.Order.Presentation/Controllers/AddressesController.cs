@@ -1,11 +1,13 @@
 ﻿using MediatR;
 using MicroserviceAralik.Order.Application.Features.Mediator.Commands.AddressCommands;
 using MicroserviceAralik.Order.Application.Features.Mediator.Queries.AddressQueries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceAralik.Order.Presentation.Controllers;
 [Route("api/[controller]")]
+[Authorize]
 [ApiController]
 public class AddressesController(IMediator _mediator) : ControllerBase
 {

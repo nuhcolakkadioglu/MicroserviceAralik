@@ -25,6 +25,10 @@ namespace MicroserviceAralık.IdentityServer
            new ApiResource("ResourceOrder")
            {
                Scopes={ "OrderReadPermission", "OrderFullPermission" }
+           },
+            new ApiResource("ResourceCargo")
+           {
+               Scopes={ "CargoReadPermission", "CargoFullPermission" }
            }
        };
 
@@ -46,6 +50,9 @@ namespace MicroserviceAralık.IdentityServer
 
             new ApiScope("OrderReadPermission","Read Access To Order Resource"),
             new ApiScope("OrderFullPermission","Full Access To Order Resource"),
+            
+            new ApiScope("CargoReadPermission","Read Access To Cargo Resource"),
+            new ApiScope("CargoFullPermission","Full Access To Cargo Resource"),
 
 
         };
@@ -69,7 +76,7 @@ namespace MicroserviceAralık.IdentityServer
                   ClientName ="Admin Client",
                   AllowedGrantTypes =GrantTypes.ResourceOwnerPassword,
                   ClientSecrets = { new Secret("AdminSecret".Sha256()) },
-                  AllowedScopes={ "CatalogFullPermission", "DiscountFullPermission" , "OrderFullPermission", IdentityServerConstants.StandardScopes.Email,
+                  AllowedScopes={ "CatalogFullPermission", "DiscountFullPermission" , "OrderFullPermission","CargoFullPermission", IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile,
                 } ,

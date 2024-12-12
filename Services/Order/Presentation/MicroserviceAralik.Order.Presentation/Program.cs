@@ -1,6 +1,17 @@
 using MicroserviceAralik.Order.Persistence.Configurations;
 using MicroserviceAralik.Order.Application.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["IdentityServerUrl"];
+        options.Audience = "ResourceOrder";
+        options.RequireHttpsMetadata = false;
+
+    });
+
 
 builder.Services.AddGenericServices();
 builder.Services.AddMediator();
@@ -20,6 +31,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
