@@ -11,7 +11,7 @@ public class CargoDetail
     public int SenderCustomerId { get; set; }
     public int ReceiverCustomerId { get; set; }
     public string Barcode { get; set; }
-    public string CompanyId { get; set; }
+    public int CompanyId { get; set; }
     public Company Company { get; set; }
 
     public Customer SenderCustomer { get; set; }
