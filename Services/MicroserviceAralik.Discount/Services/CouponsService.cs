@@ -6,8 +6,10 @@ using Grpc.Core;
 using MicroserviceAralik.Discount.Entities;
 using MicroserviceAralik.Discount.Protos;
 using MicroserviceAralik.Discount.Services.CouponService;
+using Microsoft.AspNetCore.Authorization;
 using CouponServicesss = MicroserviceAralik.Discount.Protos.CouponService;
 
+[Authorize]
 public class CouponsService(IDiscountCouponService _discountCouponService, IMapper _mapper) : CouponServicesss.CouponServiceBase
 {
     public override async Task<GetCouponResponse> CreateCoupon(CreateCouponRequest request, ServerCallContext context)

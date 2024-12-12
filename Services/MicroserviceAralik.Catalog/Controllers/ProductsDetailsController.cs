@@ -1,9 +1,11 @@
 ﻿using MicroserviceAralik.Catalog.Dtos.ProductDetailDtos;
 using MicroserviceAralik.Catalog.Services.ProductDetailService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceAralik.Catalog.Controllers;
 [Route("api/[controller]")]
+[Authorize]
 [ApiController]
 public class ProductsDetailsController(IProductDetailDetailService _categoryService) : ControllerBase
 {

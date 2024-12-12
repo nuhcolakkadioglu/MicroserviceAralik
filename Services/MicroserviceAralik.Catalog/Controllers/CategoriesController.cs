@@ -1,9 +1,11 @@
 ﻿using MicroserviceAralik.Catalog.Dtos.CategoryDtos;
 using MicroserviceAralik.Catalog.Services.CategoryService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceAralik.Catalog.Controllers;
 [Route("api/[controller]")]
+[Authorize]
 [ApiController]
 public class CategoriesController(ICategoryService _categoryService) : ControllerBase
 {

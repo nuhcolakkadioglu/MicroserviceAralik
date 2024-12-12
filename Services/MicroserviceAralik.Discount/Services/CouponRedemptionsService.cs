@@ -6,8 +6,10 @@ using Grpc.Core;
 using MicroserviceAralik.Discount.Entities;
 using MicroserviceAralik.Discount.Protos;
 using MicroserviceAralik.Discount.Services.CouponRedemptionServices;
+using Microsoft.AspNetCore.Authorization;
 using DiscountCouponRedemptionsServicess = MicroserviceAralik.Discount.Protos.CouponRedemptionService;
 
+[Authorize]
 public class CouponRedemptionsService(IDiscountCouponRedemptionService _discountCouponRedemptionService, IMapper _mapper) : DiscountCouponRedemptionsServicess.CouponRedemptionServiceBase
 {
 
