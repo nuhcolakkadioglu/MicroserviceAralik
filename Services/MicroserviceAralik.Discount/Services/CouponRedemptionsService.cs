@@ -13,7 +13,7 @@ using DiscountCouponRedemptionsServicess = MicroserviceAralik.Discount.Protos.Co
 public class CouponRedemptionsService(IDiscountCouponRedemptionService _discountCouponRedemptionService, IMapper _mapper) : DiscountCouponRedemptionsServicess.CouponRedemptionServiceBase
 {
 
-
+    [Authorize(Policy = "DiscountFullAccess")]
     public override async Task<GetCouponRedemptionResponse> CreateRedemption(CreateRedemptionRequest request, ServerCallContext context)
     {
         CouponRedemption create = _mapper.Map<CouponRedemption>(request.Redemption);
@@ -26,7 +26,7 @@ public class CouponRedemptionsService(IDiscountCouponRedemptionService _discount
     }
 
 
-
+    [Authorize(Policy = "DiscountFullAccess")]
     public override async Task<DeleteRedemptionResponse> DeleteRedemption(DeleteRedemptionRequest request, ServerCallContext context)
     {
         bool dell = await _discountCouponRedemptionService.DeleteCouponRedemption(request.Id);
@@ -34,7 +34,7 @@ public class CouponRedemptionsService(IDiscountCouponRedemptionService _discount
         return new DeleteRedemptionResponse { IsDeleted = dell };
     }
 
-
+    [Authorize(Policy = "DiscountReadAccess")]
     public override async Task<GetCouponRedemptionResponses> GetAllRedemptions(EmptyRedemption request, ServerCallContext context)
     {
         List<CouponRedemption> data = await _discountCouponRedemptionService.GetAllCouponRedemption();
@@ -45,7 +45,7 @@ public class CouponRedemptionsService(IDiscountCouponRedemptionService _discount
     }
 
 
-
+    [Authorize(Policy = "DiscountReadAccess")]
     public override async Task<GetCouponRedemptionResponse> GetCouponRedemptionById(GetCouponRedemptionByIdRequest request, ServerCallContext context)
     {
         CouponRedemption data = await _discountCouponRedemptionService.GetCouponRedemptionById(request.Id);
@@ -56,7 +56,7 @@ public class CouponRedemptionsService(IDiscountCouponRedemptionService _discount
 
     }
 
-
+    [Authorize(Policy = "DiscountFullAccess")]
     public override async Task<GetCouponRedemptionResponse> UpdateRedemption(UpdateRedemptionRequest request, ServerCallContext context)
     {
         CouponRedemption mapdata = _mapper.Map<CouponRedemption>(request.Redemption);

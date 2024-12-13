@@ -10,6 +10,7 @@ namespace MicroserviceAralik.Catalog.Controllers;
 public class CategoriesController(ICategoryService _categoryService) : ControllerBase
 {
     [HttpGet]
+    [Authorize(Policy = "CatalogReadAccess")]
     public async Task<IActionResult> GetAllCategories()
     {
         List<ResultCategoryDto> data = await _categoryService.GetAllCategories();
@@ -18,6 +19,7 @@ public class CategoriesController(ICategoryService _categoryService) : Controlle
     }
 
     [HttpGet("{id}")]
+    [Authorize(Policy = "CatalogReadAccess")]
     public async Task<IActionResult> GetCategoryById(string id)
     {
         ResultCategoryDto data = await _categoryService.GetCategoryById(id);
@@ -26,6 +28,7 @@ public class CategoriesController(ICategoryService _categoryService) : Controlle
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = "CatalogFullAccess")]
     public async Task<IActionResult> DeleteCategory(string id)
     {
         await _categoryService.DeleteCategory(id);
@@ -34,6 +37,7 @@ public class CategoriesController(ICategoryService _categoryService) : Controlle
     }
 
     [HttpPost]
+    [Authorize(Policy = "CatalogFullAccess")]
     public async Task<IActionResult> CreateCategory(CreateCategoryDto model)
     {
         await _categoryService.CreateCategory(model);
@@ -41,6 +45,7 @@ public class CategoriesController(ICategoryService _categoryService) : Controlle
 
     }
     [HttpPut]
+    [Authorize(Policy = "CatalogFullAccess")]
     public async Task<IActionResult> UpdateCategory(UpdateCategoryDto model)
     {
         await _categoryService.UpdateCategory(model);

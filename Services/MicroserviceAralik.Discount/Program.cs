@@ -19,6 +19,25 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("DiscountReadAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "DiscountReadPermission", "DiscountFullPermission");
+    });
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("DiscountFullAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "DiscountFullPermission");
+    });
+});
+
+
 builder.Services.AddScoped<IDiscountCouponService, DiscountCouponService>();
 builder.Services.AddScoped<IDiscountCouponRedemptionService, DiscountCouponRedemptionService>();
 builder.Services.AddAutoMapper(typeof(GeneralMapping));

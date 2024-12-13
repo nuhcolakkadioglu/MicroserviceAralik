@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace MicroserviceAralik.Order.Application.Services;
 public static class AutoMapperService
 {
-     public static void AddAutoMapper(this  IServiceCollection services)
+    public static void AddAutoMapper(this IServiceCollection services)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
     }

@@ -1,31 +1,36 @@
 ﻿using MediatR;
 using MicroserviceAralik.Order.Application.Features.Mediator.Commands.OrderingCommands;
 using MicroserviceAralik.Order.Application.Features.Mediator.Queries.OrderingQueries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceAralik.Order.Presentation.Controllers;
 [Route("api/[controller]")]
+[Authorize]
 [ApiController]
 public class OrderingsController(IMediator _mediator) : ControllerBase
 {
     [HttpGet]
+    [Authorize(Policy = "OrderReadAccess")]
     public async Task<IActionResult> GetAllOrderings()
     {
-        var result = await _mediator.Send(new GetOrderingQuery());
+        List<Application.Features.Mediator.Results.OrderingResults.GetOrderingQueryResult> result = await _mediator.Send(new GetOrderingQuery());
 
         return Ok(result);
     }
 
     [HttpGet("{id}")]
+    [Authorize(Policy = "OrderReadAccess")]
     public async Task<IActionResult> GetOrderingById(int id)
     {
-        var result = await _mediator.Send(new GetOrderingByIdQuery(id));
+        Application.Features.Mediator.Results.OrderingResults.GetOrderingByIdQueryResult result = await _mediator.Send(new GetOrderingByIdQuery(id));
 
         return Ok(result);
     }
 
     [HttpPost]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> CreateOrdering(CreateOrderingCommand model)
     {
         await _mediator.Send(model);
@@ -34,6 +39,7 @@ public class OrderingsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> UpdateOrdering(UpdateOrderingCommand model)
     {
         await _mediator.Send(model);
@@ -42,7 +48,8 @@ public class OrderingsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> RemoveOrdering( int id)
+    [Authorize(Policy = "OrderFullAccess")]
+    public async Task<IActionResult> RemoveOrdering(int id)
     {
         await _mediator.Send(new RemoveOrderingCommand(id));
 

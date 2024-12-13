@@ -9,7 +9,7 @@ using MicroserviceAralik.Order.Application.Features.Mediator.Results.OrderDetail
 using MicroserviceAralik.Order.Domain.Entities;
 
 namespace MicroserviceAralik.Order.Application.Mappings.OrderDetailMappings;
-public class OrderDetailMapping:Profile
+public class OrderDetailMapping : Profile
 {
     public OrderDetailMapping()
     {
@@ -18,6 +18,6 @@ public class OrderDetailMapping:Profile
         CreateMap<OrderDetail, RemoveOrderDetailCommand>().ReverseMap();
         CreateMap<OrderDetail, GetOrderDetailQueryResult>().ReverseMap();
         CreateMap<OrderDetail, GetOrderDetailByIdQueryResult>().ReverseMap();
-  
+
     }
 }

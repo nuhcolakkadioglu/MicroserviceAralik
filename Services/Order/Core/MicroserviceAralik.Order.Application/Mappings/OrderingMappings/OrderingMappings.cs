@@ -5,14 +5,14 @@ using MicroserviceAralik.Order.Application.Features.Mediator.Results.OrderingRes
 using MicroserviceAralik.Order.Domain.Entities;
 
 namespace MicroserviceAralik.Order.Application.Mappings.OrderingMappings;
-public class OrderingMappings:Profile
+public class OrderingMappings : Profile
 {
     public OrderingMappings()
     {
-        CreateMap<Ordering,CreateOrderingCommand>().ReverseMap();
-        CreateMap<Ordering,UpdateOrderingCommand>().ReverseMap();
-        CreateMap<Ordering,RemoveOrderingCommand>().ReverseMap();
+        CreateMap<Ordering, CreateOrderingCommand>().ReverseMap();
+        CreateMap<Ordering, UpdateOrderingCommand>().ReverseMap();
+        CreateMap<Ordering, RemoveOrderingCommand>().ReverseMap();
         CreateMap<Ordering, GetOrderingQueryResult>().ReverseMap();
-        CreateMap<Ordering,GetOrderingByIdQueryResult>().ReverseMap();
+        CreateMap<Ordering, GetOrderingByIdQueryResult>().ReverseMap();
     }
 }

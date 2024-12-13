@@ -24,10 +24,10 @@ public class GetAddressQueryHandler : IRequestHandler<GetAddressQuery, List<GetA
 
     public async Task<List<GetAddressQueryResult>> Handle(GetAddressQuery request, CancellationToken cancellationToken)
     {
-        var query =await _readRepository.GetAllAsync();
-        var mapData = _mapper.Map<List<GetAddressQueryResult>>(query);
+        List<Address> query = await _readRepository.GetAllAsync();
+        List<GetAddressQueryResult> mapData = _mapper.Map<List<GetAddressQueryResult>>(query);
 
         return mapData;
-         
+
     }
 }

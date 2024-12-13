@@ -12,6 +12,7 @@ using CouponServicesss = MicroserviceAralik.Discount.Protos.CouponService;
 [Authorize]
 public class CouponsService(IDiscountCouponService _discountCouponService, IMapper _mapper) : CouponServicesss.CouponServiceBase
 {
+    [Authorize(Policy = "DiscountFullAccess")]
     public override async Task<GetCouponResponse> CreateCoupon(CreateCouponRequest request, ServerCallContext context)
     {
         Coupon coupon = _mapper.Map<Coupon>(request.Coupon);
@@ -19,7 +20,7 @@ public class CouponsService(IDiscountCouponService _discountCouponService, IMapp
         GetCouponResponse mappdValue = _mapper.Map<GetCouponResponse>(result);
         return mappdValue;
     }
-
+    [Authorize(Policy = "DiscountFullAccess")]
     public override async Task<DeleteCouponResponse> DeleteCoupon(DeleteCouponRequest request, ServerCallContext context)
     {
         bool result = await _discountCouponService.DeleteCoupon(request.Id);
@@ -29,7 +30,7 @@ public class CouponsService(IDiscountCouponService _discountCouponService, IMapp
             IsDeleted = result
         };
     }
-
+    [Authorize(Policy = "DiscountReadAccess")]
     public override async Task<GetCouponResponses> GetAllCoupons(EmptyCoupon request, ServerCallContext context)
     {
         List<Coupon> values = await _discountCouponService.GetAllCoupons();
@@ -40,7 +41,7 @@ public class CouponsService(IDiscountCouponService _discountCouponService, IMapp
             Coupons = { mapValues! }
         };
     }
-
+    [Authorize(Policy = "DiscountReadAccess")]
     public override async Task<GetCouponResponse> GetCouponById(GetCouponByIdRequest request, ServerCallContext context)
     {
         Coupon values = await _discountCouponService.GetCouponById(request.Id);
@@ -50,7 +51,7 @@ public class CouponsService(IDiscountCouponService _discountCouponService, IMapp
 
 
     }
-
+    [Authorize(Policy = "DiscountFullAccess")]
     public override async Task<GetCouponResponse> UpdateCoupon(UpdateCouponRequest request, ServerCallContext context)
     {
         Coupon mapValues = _mapper.Map<Coupon>(request.Coupon);

@@ -14,7 +14,7 @@ public class CreateAddressCommandHandler(IWriteRepository<Address> _writeReposit
 {
     public async Task Handle(CreateAddressCommand request, CancellationToken cancellationToken)
     {
-        var map = _mapper.Map<Address>(request);
+        Address map = _mapper.Map<Address>(request);
         await _writeRepository.CreateAsync(map);
     }
 }

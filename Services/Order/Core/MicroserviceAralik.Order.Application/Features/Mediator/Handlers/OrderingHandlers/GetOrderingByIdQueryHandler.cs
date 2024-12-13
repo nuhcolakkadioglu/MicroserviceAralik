@@ -10,8 +10,8 @@ public class GetOrderingByIdQueryHandler(IReadRepository<Ordering> _readReposito
 {
     public async Task<GetOrderingByIdQueryResult> Handle(GetOrderingByIdQuery request, CancellationToken cancellationToken)
     {
-        var data = await _readRepository.GetByIdAsync(request.Id);
-        var mapData = _mapper.Map<GetOrderingByIdQueryResult>(data);
+        Ordering data = await _readRepository.GetByIdAsync(request.Id);
+        GetOrderingByIdQueryResult mapData = _mapper.Map<GetOrderingByIdQueryResult>(data);
         return mapData;
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 
 namespace MicroserviceAralik.Order.Application.Features.Mediator.Commands.OrderDetailCommands;
-public class UpdateOrderDetailCommand:IRequest
+public class UpdateOrderDetailCommand : IRequest
 {
     public int Id { get; set; }
     public string ProductId { get; set; }

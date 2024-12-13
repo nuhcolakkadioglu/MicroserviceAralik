@@ -15,8 +15,8 @@ public class GetAddressByIdQueryHandler(IReadRepository<Address> _readRepository
 {
     public async Task<GetAdressByIdQueryResult> Handle(GetAddressByIdQuery request, CancellationToken cancellationToken)
     {
-        var data = await _readRepository.GetByIdAsync(request.Id);
-        var mapData = _mapper.Map<GetAdressByIdQueryResult>(data);
+        Address data = await _readRepository.GetByIdAsync(request.Id);
+        GetAdressByIdQueryResult mapData = _mapper.Map<GetAdressByIdQueryResult>(data);
         return mapData;
     }
 }

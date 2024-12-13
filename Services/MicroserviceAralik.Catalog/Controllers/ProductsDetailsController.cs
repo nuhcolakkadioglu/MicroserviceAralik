@@ -10,6 +10,7 @@ namespace MicroserviceAralik.Catalog.Controllers;
 public class ProductsDetailsController(IProductDetailDetailService _categoryService) : ControllerBase
 {
     [HttpGet]
+    [Authorize(Policy = "CatalogReadAccess")]
     public async Task<IActionResult> GetAllProductDetails()
     {
         List<ResultProductDetailDto> data = await _categoryService.GetAllProductDetails();
@@ -18,6 +19,7 @@ public class ProductsDetailsController(IProductDetailDetailService _categoryServ
     }
 
     [HttpGet("{id}")]
+    [Authorize(Policy = "CatalogReadAccess")]
     public async Task<IActionResult> GetProductDetailById(string id)
     {
         ResultProductDetailDto data = await _categoryService.GetProductDetailById(id);
@@ -26,6 +28,7 @@ public class ProductsDetailsController(IProductDetailDetailService _categoryServ
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = "CatalogFullAccess")]
     public async Task<IActionResult> DeleteProductDetail(string id)
     {
         await _categoryService.DeleteProductDetail(id);
@@ -34,6 +37,7 @@ public class ProductsDetailsController(IProductDetailDetailService _categoryServ
     }
 
     [HttpPost]
+    [Authorize(Policy = "CatalogFullAccess")]
     public async Task<IActionResult> CreateProductDetail(CreateProductDetailDto model)
     {
         await _categoryService.CreateProductDetail(model);
@@ -41,6 +45,7 @@ public class ProductsDetailsController(IProductDetailDetailService _categoryServ
 
     }
     [HttpPut]
+    [Authorize(Policy = "CatalogFullAccess")]
     public async Task<IActionResult> UpdateProductDetail(UpdateProductDetailDto model)
     {
         await _categoryService.UpdateProductDetail(model);

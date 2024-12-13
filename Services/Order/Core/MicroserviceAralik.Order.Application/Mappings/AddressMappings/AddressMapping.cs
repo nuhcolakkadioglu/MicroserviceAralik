@@ -9,7 +9,7 @@ using MicroserviceAralik.Order.Application.Features.Mediator.Results.AddresResul
 using MicroserviceAralik.Order.Domain.Entities;
 
 namespace MicroserviceAralik.Order.Application.Mappings.AddressMappings;
-public class AddressMapping:Profile
+public class AddressMapping : Profile
 {
     public AddressMapping()
     {
@@ -18,6 +18,6 @@ public class AddressMapping:Profile
         CreateMap<Address, UpdateAddressCommand>().ReverseMap();
         CreateMap<Address, GetAddressQueryResult>().ReverseMap();
         CreateMap<Address, GetAdressByIdQueryResult>().ReverseMap();
- 
+
     }
 }

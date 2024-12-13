@@ -14,8 +14,8 @@ public class UpdateOrderDetailCommandHandler(IWriteRepository<OrderDetail> _writ
 {
     public async Task Handle(UpdateOrderDetailCommand request, CancellationToken cancellationToken)
     {
-        var value = await _readRepository.GetByIdAsync(request.Id);
-        var map = _mapper.Map(request, value);
+        OrderDetail value = await _readRepository.GetByIdAsync(request.Id);
+        OrderDetail map = _mapper.Map(request, value);
 
         await _writeRepository.UpdateAsync(map);
     }

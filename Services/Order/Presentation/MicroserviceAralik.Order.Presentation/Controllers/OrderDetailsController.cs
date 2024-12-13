@@ -1,31 +1,36 @@
 ﻿using MediatR;
 using MicroserviceAralik.Order.Application.Features.Mediator.Commands.OrderDetailCommands;
 using MicroserviceAralik.Order.Application.Features.Mediator.Queries.OrderDetailQueries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceAralik.Order.Presentation.Controllers;
 [Route("api/[controller]")]
+[Authorize]
 [ApiController]
 public class OrderDetailsController(IMediator _mediator) : ControllerBase
 {
     [HttpGet]
+    [Authorize(Policy = "OrderReadAccess")]
     public async Task<IActionResult> GetAllOrderDetails()
     {
-        var result = await _mediator.Send(new GetOrderDetailQuery());
+        List<Application.Features.Mediator.Results.OrderDetailResults.GetOrderDetailQueryResult> result = await _mediator.Send(new GetOrderDetailQuery());
 
         return Ok(result);
     }
 
     [HttpGet("{id}")]
+    [Authorize(Policy = "OrderReadAccess")]
     public async Task<IActionResult> GetOrderDetailById(int id)
     {
-        var result = await _mediator.Send(new GetOrderDetailByIdQuery(id));
+        Application.Features.Mediator.Results.OrderDetailResults.GetOrderDetailByIdQueryResult result = await _mediator.Send(new GetOrderDetailByIdQuery(id));
 
         return Ok(result);
     }
 
     [HttpPost]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> CreateOrderDetail(CreateOrderDetailCommand model)
     {
         await _mediator.Send(model);
@@ -34,6 +39,7 @@ public class OrderDetailsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> UpdateOrderDetail(UpdateOrderDetailCommand model)
     {
         await _mediator.Send(model);
@@ -42,7 +48,8 @@ public class OrderDetailsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> RemoveOrderDetail( int id)
+    [Authorize(Policy = "OrderFullAccess")]
+    public async Task<IActionResult> RemoveOrderDetail(int id)
     {
         await _mediator.Send(new RemoveOrderDetailCommand(id));
 
