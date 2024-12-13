@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MicroserviceAralik.Services.Cargo.DtoLayer.Dtos.CustomerDtos;
 public class CreateCustomerDto
 {
-   
+
     public string Name { get; set; }
     public string Surname { get; set; }
     public string Email { get; set; }
