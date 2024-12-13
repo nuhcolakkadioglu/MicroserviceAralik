@@ -12,6 +12,7 @@ namespace MicroserviceAralik.Order.Presentation.Controllers;
 public class OrderingsController(IMediator _mediator) : ControllerBase
 {
     [HttpGet]
+    [Authorize(Policy = "OrderReadAccess")]
     public async Task<IActionResult> GetAllOrderings()
     {
         List<Application.Features.Mediator.Results.OrderingResults.GetOrderingQueryResult> result = await _mediator.Send(new GetOrderingQuery());
@@ -20,6 +21,7 @@ public class OrderingsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Policy = "OrderReadAccess")]
     public async Task<IActionResult> GetOrderingById(int id)
     {
         Application.Features.Mediator.Results.OrderingResults.GetOrderingByIdQueryResult result = await _mediator.Send(new GetOrderingByIdQuery(id));
@@ -28,6 +30,7 @@ public class OrderingsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> CreateOrdering(CreateOrderingCommand model)
     {
         await _mediator.Send(model);
@@ -36,6 +39,7 @@ public class OrderingsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> UpdateOrdering(UpdateOrderingCommand model)
     {
         await _mediator.Send(model);
@@ -44,6 +48,7 @@ public class OrderingsController(IMediator _mediator) : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> RemoveOrdering(int id)
     {
         await _mediator.Send(new RemoveOrderingCommand(id));

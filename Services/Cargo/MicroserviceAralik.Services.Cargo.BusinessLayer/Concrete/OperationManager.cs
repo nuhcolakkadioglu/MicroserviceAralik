@@ -13,7 +13,5 @@ public class OperationManager : GenericManager<Operation>, IOperationService
     }
 
     public async Task<List<Operation>> GetOperationByBarcodeNumber(string barcode)
-    {
-        return await _operationDal.GetOperationByBarcodeNumber(barcode);
-    }
+     => await _operationDal.GetOperationByBarcodeNumber(barcode);
 }

@@ -6,19 +6,36 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.Authority = builder.Configuration["IdentityServerUrl"];
-        options.Audience = "ResourceCatalog";
+        options.Audience = "ResourceCargo";
         options.RequireHttpsMetadata = false;
 
     });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("CargoReadAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "CargoReadPermission", "CargoFullPermission");
+    });
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("CargoFullAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "CargoFullPermission");
+    });
+});
+
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 WebApplication app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

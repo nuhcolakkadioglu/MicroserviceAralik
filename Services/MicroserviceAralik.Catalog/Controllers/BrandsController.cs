@@ -10,13 +10,14 @@ namespace MicroserviceAralik.Catalog.Controllers;
 public class BrandsController(IBrandService _brandService) : ControllerBase
 {
     [HttpGet]
+    [Authorize(Policy = "CatalogReadAccess")]
     public async Task<IActionResult> GetAllBrands()
     {
         List<ResultBrandDto> data = await _brandService.GetAllBrands();
         return Ok(data);
 
     }
-
+    [Authorize(Policy = "CatalogReadAccess")]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetBrandById(string id)
     {
@@ -24,7 +25,7 @@ public class BrandsController(IBrandService _brandService) : ControllerBase
         return Ok(data);
 
     }
-
+    [Authorize(Policy = "CatalogFullAccess")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteBrand(string id)
     {
@@ -32,7 +33,7 @@ public class BrandsController(IBrandService _brandService) : ControllerBase
         return Ok();
 
     }
-
+    [Authorize(Policy = "CatalogFullAccess")]
     [HttpPost]
     public async Task<IActionResult> CreateBrand(CreateBrandDto model)
     {
@@ -40,6 +41,7 @@ public class BrandsController(IBrandService _brandService) : ControllerBase
         return Ok();
 
     }
+    [Authorize(Policy = "CatalogFullAccess")]
     [HttpPut]
     public async Task<IActionResult> UpdateBrand(UpdateBrandDto model)
     {

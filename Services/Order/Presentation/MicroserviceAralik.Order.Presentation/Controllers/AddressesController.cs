@@ -12,6 +12,7 @@ namespace MicroserviceAralik.Order.Presentation.Controllers;
 public class AddressesController(IMediator _mediator) : ControllerBase
 {
     [HttpGet]
+    [Authorize(Policy = "OrderReadAccess")]
     public async Task<IActionResult> GetAllAddresses()
     {
         List<Application.Features.Mediator.Results.AddresResults.GetAddressQueryResult> result = await _mediator.Send(new GetAddressQuery());
@@ -20,6 +21,7 @@ public class AddressesController(IMediator _mediator) : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Policy = "OrderReadAccess")]
     public async Task<IActionResult> GetAddressById(int id)
     {
         Application.Features.Mediator.Results.AddresResults.GetAdressByIdQueryResult result = await _mediator.Send(new GetAddressByIdQuery(id));
@@ -28,6 +30,7 @@ public class AddressesController(IMediator _mediator) : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> CreateAddress(CreateAddressCommand model)
     {
         await _mediator.Send(model);
@@ -36,6 +39,7 @@ public class AddressesController(IMediator _mediator) : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> UpdateAddress(UpdateAddressCommand model)
     {
         await _mediator.Send(model);
@@ -44,6 +48,7 @@ public class AddressesController(IMediator _mediator) : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = "OrderFullAccess")]
     public async Task<IActionResult> RemoveAddress(int id)
     {
         await _mediator.Send(new RemoveAddressCommand(id));
