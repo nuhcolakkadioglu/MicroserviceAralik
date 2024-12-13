@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace MicroserviceAralik.Services.Cargo.WebApi.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class CompanyiesController(ICompanyService _companyService) : ControllerBase
+public class CompaniesController(ICompanyService _companyService) : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> GetAllCompanys()
+    public async Task<IActionResult> GetAllCompanies()
     {
         var result = await _companyService.GetAllAsync();
         return Ok(result);
