@@ -1,0 +1,6 @@
+@MicroserviceAralik.Basket_HostAddress = http://localhost:5161
+
+GET {{MicroserviceAralik.Basket_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

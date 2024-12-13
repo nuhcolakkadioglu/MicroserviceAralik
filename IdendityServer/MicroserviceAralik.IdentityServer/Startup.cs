@@ -28,6 +28,7 @@ namespace MicroserviceAralık.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLocalApiAuthentication();
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -56,6 +57,13 @@ namespace MicroserviceAralık.IdentityServer
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("IdentityServerApi", policy =>
+            //        policy.RequireAuthenticatedUser());
+            //});
+
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
@@ -81,6 +89,7 @@ namespace MicroserviceAralık.IdentityServer
 
             app.UseRouting();
             app.UseIdentityServer();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

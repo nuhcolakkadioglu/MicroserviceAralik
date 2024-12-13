@@ -44,6 +44,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Services
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.IdentityServer", "IdendityServer\MicroserviceAralik.IdentityServer\MicroserviceAralik.IdentityServer.csproj", "{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{763CCDD2-3B08-43F0-8D58-79E6BD30E033}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Basket", "Services\Basket\MicroserviceAralik.Basket\MicroserviceAralik.Basket.csproj", "{DBA3B11A-2A34-40F8-BBF3-4D1C054B326D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{217D3DEC-7258-41AD-9CFD-65B6FA12738D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.OcelotGateway", "ApiGateway\MicroserviceAralik.OcelotGateway\MicroserviceAralik.OcelotGateway.csproj", "{B9A120D1-C77A-418C-8DEA-BC71179D40AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,6 +106,14 @@ Global
 		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBA3B11A-2A34-40F8-BBF3-4D1C054B326D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA3B11A-2A34-40F8-BBF3-4D1C054B326D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA3B11A-2A34-40F8-BBF3-4D1C054B326D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA3B11A-2A34-40F8-BBF3-4D1C054B326D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A120D1-C77A-418C-8DEA-BC71179D40AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A120D1-C77A-418C-8DEA-BC71179D40AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A120D1-C77A-418C-8DEA-BC71179D40AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A120D1-C77A-418C-8DEA-BC71179D40AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,5 +136,8 @@ Global
 		{DCF37020-F2DC-442B-8B83-7ED14777438A} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
 		{D30C5686-D504-4695-B80F-A134AF3378BE} = {D373C509-BE47-4D11-A951-92EAD7AF3288}
 		{2C861D17-61D1-4A2C-9436-4F6FE1355D5B} = {5B8BCC22-F505-4625-B97E-1909E17542E1}
+		{763CCDD2-3B08-43F0-8D58-79E6BD30E033} = {199C6B26-AF0E-46A8-8C77-1983A6140C75}
+		{DBA3B11A-2A34-40F8-BBF3-4D1C054B326D} = {763CCDD2-3B08-43F0-8D58-79E6BD30E033}
+		{B9A120D1-C77A-418C-8DEA-BC71179D40AF} = {217D3DEC-7258-41AD-9CFD-65B6FA12738D}
 	EndGlobalSection
 EndGlobal

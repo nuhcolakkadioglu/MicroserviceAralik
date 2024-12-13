@@ -29,7 +29,9 @@ namespace MicroserviceAralık.IdentityServer
             new ApiResource("ResourceCargo")
            {
                Scopes={ "CargoReadPermission", "CargoFullPermission" }
-           }
+           },
+             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
+          
        };
 
         public static IEnumerable<IdentityResource> IdentityResources => new List<IdentityResource>()
@@ -53,6 +55,9 @@ namespace MicroserviceAralık.IdentityServer
 
             new ApiScope("CargoReadPermission","Read Access To Cargo Resource"),
             new ApiScope("CargoFullPermission","Full Access To Cargo Resource"),
+
+
+            new ApiScope(IdentityServerConstants.LocalApi.ScopeName),
 
 
         };
@@ -79,6 +84,7 @@ namespace MicroserviceAralık.IdentityServer
                   AllowedScopes={ "CatalogFullPermission", "DiscountFullPermission" , "OrderFullPermission","CargoFullPermission", IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile,
+                IdentityServerConstants.LocalApi.ScopeName
                 } ,
                   AccessTokenLifetime=720
 
