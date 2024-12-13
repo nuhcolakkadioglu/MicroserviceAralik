@@ -16,11 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MicroserviceAralik.Services.Cargo.BusinessLayer\MicroserviceAralik.Services.Cargo.BusinessLayer.csproj" />
+    <ProjectReference Include="..\MicroserviceAralik.Services.Cargo.DtoLayer\MicroserviceAralik.Services.Cargo.DtoLayer.csproj" />
   </ItemGroup>
 
 </Project>
