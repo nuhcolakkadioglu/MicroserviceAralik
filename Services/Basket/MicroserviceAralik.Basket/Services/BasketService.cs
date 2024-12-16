@@ -35,6 +35,12 @@ public class BasketService : IBasketService
 
         var getBasket =await _redisService.GetDatabase().StringGetAsync(userId);
        
+        if(getBasket.IsNull)
+        {
+            throw new Exception("HASHDHASDH");
+        }
+     
+
         return JsonSerializer.Deserialize<BasketTotalDto>(getBasket);
 
      }

@@ -43,7 +43,7 @@ builder.Services.AddScoped<IDiscountCouponRedemptionService, DiscountCouponRedem
 builder.Services.AddAutoMapper(typeof(GeneralMapping));
 builder.Services.AddDbContext<AppDbContext>();
 
-builder.Services.AddGrpc();
+builder.Services.AddGrpc().AddJsonTranscoding();
 
 WebApplication app = builder.Build();
 
