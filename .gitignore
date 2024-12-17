@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /readme.txt
+/Services/Image/MicroserviceAralik.Image/appsettings.Development.json
+/Services/Image/MicroserviceAralik.Image/appsettings.json
