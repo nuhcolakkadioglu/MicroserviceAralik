@@ -60,6 +60,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{31
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Image", "Services\Image\MicroserviceAralik.Image\MicroserviceAralik.Image.csproj", "{6F7586B1-F788-44E4-818A-3EA697F76BCB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message", "Message", "{3604E67C-0189-4E9A-A309-AB5E42EEEAB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Message", "Services\Message\MicroserviceAralik.Message\MicroserviceAralik.Message.csproj", "{53F7504D-E2A2-4FD7-B874-827D34B77B96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +130,10 @@ Global
 		{6F7586B1-F788-44E4-818A-3EA697F76BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F7586B1-F788-44E4-818A-3EA697F76BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F7586B1-F788-44E4-818A-3EA697F76BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53F7504D-E2A2-4FD7-B874-827D34B77B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F7504D-E2A2-4FD7-B874-827D34B77B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F7504D-E2A2-4FD7-B874-827D34B77B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F7504D-E2A2-4FD7-B874-827D34B77B96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,5 +163,7 @@ Global
 		{937CCE9B-F16B-478F-94B1-A2C090EE86FC} = {199C6B26-AF0E-46A8-8C77-1983A6140C75}
 		{31594BE9-4BF5-44A3-99C2-5EDCD6162374} = {199C6B26-AF0E-46A8-8C77-1983A6140C75}
 		{6F7586B1-F788-44E4-818A-3EA697F76BCB} = {89EC1E21-A325-4FCD-B9F0-8C655E893460}
+		{3604E67C-0189-4E9A-A309-AB5E42EEEAB2} = {199C6B26-AF0E-46A8-8C77-1983A6140C75}
+		{53F7504D-E2A2-4FD7-B874-827D34B77B96} = {3604E67C-0189-4E9A-A309-AB5E42EEEAB2}
 	EndGlobalSection
 EndGlobal

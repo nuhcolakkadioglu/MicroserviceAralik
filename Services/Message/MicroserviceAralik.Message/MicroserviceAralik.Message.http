@@ -1,0 +1,6 @@
+@MicroserviceAralik.Message_HostAddress = http://localhost:5271
+
+GET {{MicroserviceAralik.Message_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
