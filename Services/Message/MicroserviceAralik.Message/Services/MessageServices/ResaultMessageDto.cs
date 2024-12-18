@@ -1,15 +1,6 @@
-﻿namespace MicroserviceAralik.Message.Dtos;
+﻿namespace MicroserviceAralik.Message.Services.MessageServices;
 
-public class CreateMessageDto
-{
-     public string SenderId { get; set; }
-    public string ReceiverdId { get; set; }
-    public string Subject { get; set; }
-    public string Message { get; set; }
- }
-
-
-public class UpdateMessageDto
+public class ResaultMessageDto
 {
     public int Id { get; set; }
     public string SenderId { get; set; }
