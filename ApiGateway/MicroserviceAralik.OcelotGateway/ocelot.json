@@ -111,6 +111,29 @@
                 "DurationOfBreak": 2000,
                 "TimeoutValue": 10000
             }
+        },
+
+        //Image
+        {
+            "DownstreamPathTemplate": "/api/{everything}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7161
+                }
+            ],
+            "UpstreamPathTemplate": "/services/images/{everything}",
+            "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "UPDATE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+                "AllowedScopes": [ "ImageFullPermission", "ImageReadPermission" ]
+            },
+            "QoSOptions": {
+                "ExceptionsAllowedBeforeBreaking": 3,
+                "DurationOfBreak": 2000,
+                "TimeoutValue": 10000
+            }
         }
 
 

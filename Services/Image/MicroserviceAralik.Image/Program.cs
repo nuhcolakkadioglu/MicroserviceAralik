@@ -1,7 +1,36 @@
 using MicroserviceAralik.Image.Context;
 using MicroserviceAralik.Image.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["IdentityServerUrl"];
+        options.Audience = "ResourceImage";
+        options.RequireHttpsMetadata = false;
+
+
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ImageReadAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "ImageReadPermission", "ImageFullPermission");
+    });
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ImageFullAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "ImageFullPermission");
+    });
+});
 
 
 builder.Services.Configure<AWSSettings>(builder.Configuration.GetSection(nameof(AWSSettings)));
@@ -24,8 +53,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

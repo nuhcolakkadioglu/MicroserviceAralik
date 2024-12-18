@@ -21,9 +21,12 @@ public class FileUploder(IConfiguration _configuration) : IFileUploder
 
         var tempFilePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + Path.GetExtension(formFile.FileName));
 
-        using var stream = new FileStream(tempFilePath, FileMode.Create);
+        using (var stream = new FileStream(tempFilePath, FileMode.Create))
+        {
+            await formFile.CopyToAsync(stream);
 
-        await formFile.CopyToAsync(stream);
+        }
+
 
         var putRequest = new PutObjectRequest
         {
@@ -54,6 +57,7 @@ public class FileUploder(IConfiguration _configuration) : IFileUploder
 
             Console.WriteLine(ex.Message);
         }
+   
 
         return null;
 

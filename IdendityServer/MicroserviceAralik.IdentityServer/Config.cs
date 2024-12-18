@@ -41,6 +41,10 @@ namespace MicroserviceAralık.IdentityServer
            {
                Scopes={  "OcelotFullPermission" }
            },
+              new ApiResource("ResourceImage")
+           {
+               Scopes={ "ImageReadPermission", "ImageFullPermission" }
+           },
 
        };
 
@@ -75,10 +79,12 @@ namespace MicroserviceAralık.IdentityServer
 
             new ApiScope("OcelotFullPermission","Full Access To Ocelot Resource"),
 
+            new ApiScope("ImageFullPermission","Full Access To Image Resource"),
+            new ApiScope("ImageReadPermission","Read Access To Cargo Resource"),
+
 
         };
-
-
+      
         public static IEnumerable<Client> Clients => new List<Client>()
         {
             new Client{
@@ -86,7 +92,7 @@ namespace MicroserviceAralık.IdentityServer
             ClientName ="Visitor Client",
             AllowedGrantTypes =GrantTypes.ClientCredentials,
             ClientSecrets = { new Secret("VisitorSecret".Sha256()) },
-            AllowedScopes={ "CatalogReadPermission", "DiscountReadPermission", "OcelotFullPermission" } //OrderReadPermission
+            AllowedScopes={ "CatalogReadPermission", "DiscountReadPermission", "OcelotFullPermission", "ImageReadPermission" } //OrderReadPermission
 
             },
 
@@ -98,8 +104,9 @@ namespace MicroserviceAralık.IdentityServer
                   AllowedGrantTypes =GrantTypes.ResourceOwnerPassword,
                   ClientSecrets = { new Secret("AdminSecret".Sha256()) },
                   AllowedScopes={ "CatalogFullPermission", "DiscountFullPermission" , "OrderFullPermission","CargoFullPermission","BasketFullPermission",
-                    "OcelotFullPermission",
-                    
+                    "OcelotFullPermission","ImageFullPermission",
+
+
                     IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile,
