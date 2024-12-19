@@ -1,16 +1,27 @@
+using System.Reflection;
+using MicroserviceAralik.Message.Dal.Context;
+using MicroserviceAralik.Message.Mapping;
+using MicroserviceAralik.Message.Services.MessageServices;
+using MicroserviceAralik.Message.Services.RabbitMqServices;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+builder.Services.AddDbContext<AppDbContext>();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
+ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped<RabbitMQPublisher>();
+builder.Services.AddHostedService<RabbitMQConsumer>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

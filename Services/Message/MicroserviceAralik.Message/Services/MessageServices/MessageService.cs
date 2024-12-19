@@ -13,8 +13,8 @@ public class MessageService(IMapper _map, AppDbContext _context) : IMessageServi
         var mappMessage = _map.Map<UserMessage>(model);
         mappMessage.Status = "Gönderildi";
         mappMessage.SendDate = DateTime.UtcNow;
-        var value = await _context.AddAsync(mappMessage);
-        await _context.SaveChangesAsync();
+        var value = await _context.UserMessages. AddAsync(mappMessage);
+       // await _context.SaveChangesAsync();
 
         mappMessage.Id = value.Entity.Id;
 
