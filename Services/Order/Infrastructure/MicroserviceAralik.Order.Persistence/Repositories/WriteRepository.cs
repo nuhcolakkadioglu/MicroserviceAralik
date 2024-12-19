@@ -1,4 +1,5 @@
-﻿using MicroserviceAralik.Order.Application.Interfaces;
+﻿using MicroserviceAralik.Order.Application.Features.Mediator.Commands.OrderingCommands;
+using MicroserviceAralik.Order.Application.Interfaces;
 using MicroserviceAralik.Order.Persistence.Context;
 
 namespace MicroserviceAralik.Order.Persistence.Repositories;
@@ -9,6 +10,8 @@ public class WriteRepository<TEntity>(AppDbContext _context) : IWriteRepository<
         await _context.Set<TEntity>().AddAsync(model);
         await _context.SaveChangesAsync();
     }
+
+
 
     public async Task DeleteAsync(int id)
     {
@@ -23,3 +26,6 @@ public class WriteRepository<TEntity>(AppDbContext _context) : IWriteRepository<
         await _context.SaveChangesAsync();
     }
 }
+
+
+

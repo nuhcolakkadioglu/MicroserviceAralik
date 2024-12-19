@@ -2,11 +2,11 @@
 
 public class CreateMessageDto
 {
-     public string SenderId { get; set; }
+    public string SenderId { get; set; }
     public string ReceiverdId { get; set; }
     public string Subject { get; set; }
     public string Message { get; set; }
- }
+}
 
 
 public class UpdateMessageDto

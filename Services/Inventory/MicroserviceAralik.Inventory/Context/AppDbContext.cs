@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MicroserviceAralik.Inventory.Context;
 
-public class AppDbContext:DbContext
+public class AppDbContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

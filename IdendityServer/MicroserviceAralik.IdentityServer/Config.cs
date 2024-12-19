@@ -84,7 +84,7 @@ namespace MicroserviceAralık.IdentityServer
 
 
         };
-      
+
         public static IEnumerable<Client> Clients => new List<Client>()
         {
             new Client{

@@ -25,7 +25,7 @@ public class BasketsController : ControllerBase
     public async Task<IActionResult> GetBasket()
     {
 
-     var data =   await _basketService.GetBasket();
+        BasketTotalDto data = await _basketService.GetBasket();
 
         return Ok(data);
     }

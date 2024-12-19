@@ -17,10 +17,10 @@ public class BrandImagesController(IFileUploder _fileUploder, ImageContext _cont
     [Authorize(Policy = "ImageFullAccess")]
     public async Task<IActionResult> UploadBrandes(CreateBrandImageDto model)
     {
-        var result = await _fileUploder.UploadFile(model.ImageFile);
+        string? result = await _fileUploder.UploadFile(model.ImageFile);
         if (result is not null)
         {
-            var Brande = new BrandImage
+            BrandImage Brande = new BrandImage
             {
                 ImageUrl = result,
                 BrandId = model.BrandId,
@@ -32,7 +32,7 @@ public class BrandImagesController(IFileUploder _fileUploder, ImageContext _cont
         }
 
 
-        return  BadRequest("Hataa");
+        return BadRequest("Hataa");
 
     }
 
@@ -51,7 +51,7 @@ public class BrandImagesController(IFileUploder _fileUploder, ImageContext _cont
     public async Task<IActionResult> GetBrandeId(string productId)
     {
 
-        return Ok(await _context.BrandImages.FirstOrDefaultAsync(m=>m.BrandId== productId));
+        return Ok(await _context.BrandImages.FirstOrDefaultAsync(m => m.BrandId == productId));
 
 
     }

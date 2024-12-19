@@ -5,12 +5,12 @@ using MicroserviceAralik.Message.Services.MessageServices;
 
 namespace MicroserviceAralik.Message.Mapping;
 
-public class Mappings:Profile
+public class Mappings : Profile
 {
     public Mappings()
     {
-        CreateMap<UserMessage, CreateMessageDto>().ReverseMap();    
-        CreateMap<UserMessage, UpdateMessageDto>().ReverseMap();    
-        CreateMap<UserMessage, ResaultMessageDto>().ReverseMap();    
+        CreateMap<UserMessage, CreateMessageDto>().ReverseMap();
+        CreateMap<UserMessage, UpdateMessageDto>().ReverseMap();
+        CreateMap<UserMessage, ResaultMessageDto>().ReverseMap();
     }
 }

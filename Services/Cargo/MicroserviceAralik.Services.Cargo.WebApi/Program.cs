@@ -1,4 +1,4 @@
-  using MicroserviceAralik.Services.Cargo.BusinessLayer.Extensions;
+using MicroserviceAralik.Services.Cargo.BusinessLayer.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 

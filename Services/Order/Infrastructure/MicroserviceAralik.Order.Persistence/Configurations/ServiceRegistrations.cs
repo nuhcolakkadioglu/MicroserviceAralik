@@ -16,6 +16,7 @@ public static class ServiceRegistrations
         services.AddDbContext<AppDbContext>();
         services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
         services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
-
+        services.AddScoped<IOrderingInterface, OrderingRepository>();
+          
     }
 }

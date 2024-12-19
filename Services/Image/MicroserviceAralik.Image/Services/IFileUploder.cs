@@ -1,4 +1,4 @@
-﻿ 
+﻿
 namespace MicroserviceAralik.Image.Services;
 
 public interface IFileUploder

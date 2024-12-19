@@ -68,6 +68,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.Inventory", "Services\Inventory\MicroserviceAralik.Inventory\MicroserviceAralik.Inventory.csproj", "{4D290F35-F1E3-4629-A06C-A9C97FC47A87}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RabbitMQ", "RabbitMQ", "{FFB26723-8831-4826-B44F-519FCB7DC84A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralik.RabbitMQ", "Services\RabbitMQ\MicroserviceAralik.RabbitMQ\MicroserviceAralik.RabbitMQ.csproj", "{5C362202-33B7-4D71-8B67-C4DFF82E6F9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -142,6 +146,10 @@ Global
 		{4D290F35-F1E3-4629-A06C-A9C97FC47A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D290F35-F1E3-4629-A06C-A9C97FC47A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D290F35-F1E3-4629-A06C-A9C97FC47A87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C362202-33B7-4D71-8B67-C4DFF82E6F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C362202-33B7-4D71-8B67-C4DFF82E6F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C362202-33B7-4D71-8B67-C4DFF82E6F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C362202-33B7-4D71-8B67-C4DFF82E6F9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -175,5 +183,7 @@ Global
 		{53F7504D-E2A2-4FD7-B874-827D34B77B96} = {3604E67C-0189-4E9A-A309-AB5E42EEEAB2}
 		{31ECFF5B-4305-49A9-8D44-EA9685D14315} = {199C6B26-AF0E-46A8-8C77-1983A6140C75}
 		{4D290F35-F1E3-4629-A06C-A9C97FC47A87} = {31ECFF5B-4305-49A9-8D44-EA9685D14315}
+		{FFB26723-8831-4826-B44F-519FCB7DC84A} = {199C6B26-AF0E-46A8-8C77-1983A6140C75}
+		{5C362202-33B7-4D71-8B67-C4DFF82E6F9A} = {FFB26723-8831-4826-B44F-519FCB7DC84A}
 	EndGlobalSection
 EndGlobal

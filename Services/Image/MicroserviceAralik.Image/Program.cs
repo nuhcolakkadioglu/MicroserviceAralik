@@ -2,7 +2,7 @@ using MicroserviceAralik.Image.Context;
 using MicroserviceAralik.Image.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -35,7 +35,7 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.Configure<AWSSettings>(builder.Configuration.GetSection(nameof(AWSSettings)));
 builder.Services.AddDbContext<ImageContext>();
-builder.Services.AddScoped<IFileUploder,FileUploder>();
+builder.Services.AddScoped<IFileUploder, FileUploder>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -43,7 +43,7 @@ builder.Services.AddSwaggerGen();
 
 
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {

@@ -8,11 +8,11 @@ public class CreateStockDto
     public string ProductId { get; set; }
     public int Quantity { get; set; }
     public int WarehouseId { get; set; }
-    public DateTime lastUpdate { get; set; }
 }
 
 public class ResutlStockDto : CreateStockDto
 {
     public int Id { get; set; }
+    public DateTime lastUpdate { get; set; }
 
 }

@@ -17,10 +17,10 @@ public class ProductImagesController(IFileUploder _fileUploder, ImageContext _co
     [Authorize(Policy = "ImageFullAccess")]
     public async Task<IActionResult> UploadProductImages(CreateProductImageDto model)
     {
-        var result = await _fileUploder.UploadFile(model.ImageFile);
+        string? result = await _fileUploder.UploadFile(model.ImageFile);
         if (result is not null)
         {
-            var productImage = new ProductImage
+            ProductImage productImage = new ProductImage
             {
                 ImageUrl = result,
                 ProductId = model.ProductId,
@@ -32,7 +32,7 @@ public class ProductImagesController(IFileUploder _fileUploder, ImageContext _co
         }
 
 
-        return  BadRequest("Hataa");
+        return BadRequest("Hataa");
 
     }
 
@@ -52,7 +52,7 @@ public class ProductImagesController(IFileUploder _fileUploder, ImageContext _co
     public async Task<IActionResult> GetProductImageId(string productId)
     {
 
-        return Ok(await _context.ProductImages.FirstOrDefaultAsync(m=>m.ProductId== productId));
+        return Ok(await _context.ProductImages.FirstOrDefaultAsync(m => m.ProductId == productId));
 
 
     }

@@ -8,27 +8,27 @@ public class FileUploder(IConfiguration _configuration) : IFileUploder
 {
     public async Task<string> UploadFile(IFormFile formFile)
     {
-        var awsSettings = _configuration.GetSection("AWSSettings").Get<AWSSettings>();
+        AWSSettings? awsSettings = _configuration.GetSection("AWSSettings").Get<AWSSettings>();
 
-        var s3Config = new AmazonS3Config()
+        AmazonS3Config s3Config = new AmazonS3Config()
         {
             ForcePathStyle = true,
             ServiceURL = awsSettings.ServiceUrl
         };
 
-        var s3Client = new AmazonS3Client(awsSettings.AccessKeyId, awsSettings.SecretAccessKey, s3Config);
+        AmazonS3Client s3Client = new AmazonS3Client(awsSettings.AccessKeyId, awsSettings.SecretAccessKey, s3Config);
 
 
-        var tempFilePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + Path.GetExtension(formFile.FileName));
+        string tempFilePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + Path.GetExtension(formFile.FileName));
 
-        using (var stream = new FileStream(tempFilePath, FileMode.Create))
+        using (FileStream stream = new FileStream(tempFilePath, FileMode.Create))
         {
             await formFile.CopyToAsync(stream);
 
         }
 
 
-        var putRequest = new PutObjectRequest
+        PutObjectRequest putRequest = new PutObjectRequest
         {
             BucketName = awsSettings.BucketName,
             Key = Path.GetFileName(tempFilePath),
@@ -36,7 +36,7 @@ public class FileUploder(IConfiguration _configuration) : IFileUploder
             AutoCloseStream = true,
             DisablePayloadSigning = true,
             StreamTransferProgress = new EventHandler<Amazon.Runtime.StreamTransferProgressArgs>
-            ((sender,args) =>
+            ((sender, args) =>
             {
                 Console.WriteLine($"{args.PercentDone} {args.TransferredBytes} Total Byte{args.TotalBytes}");
 
@@ -46,7 +46,7 @@ public class FileUploder(IConfiguration _configuration) : IFileUploder
 
         try
         {
-            var response = await s3Client.PutObjectAsync(putRequest);
+            PutObjectResponse response = await s3Client.PutObjectAsync(putRequest);
             if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
             {
                 return $"{awsSettings.Domain}/{putRequest.Key}";
@@ -57,7 +57,7 @@ public class FileUploder(IConfiguration _configuration) : IFileUploder
 
             Console.WriteLine(ex.Message);
         }
-   
+
 
         return null;
 

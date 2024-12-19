@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -49,15 +49,15 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 builder.Services.AddSingleton<RedisService>(sp =>
 {
-    var Redissettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
+    RedisSettings Redissettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
 
-    var redisService = new RedisService(Redissettings.Host, Redissettings.Port);
+    RedisService redisService = new RedisService(Redissettings.Host, Redissettings.Port);
     redisService.Connect();
 
     return redisService;
 
 });
- 
+
 builder.Services.AddSwaggerGen(opt =>
 {
     opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
@@ -87,7 +87,7 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {

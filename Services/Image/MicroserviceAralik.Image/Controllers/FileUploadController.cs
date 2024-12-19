@@ -10,7 +10,7 @@ public class FileUploadController(IFileUploder _fileUploder) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(IFormFile formFile)
     {
-        var result = await _fileUploder.UploadFile(formFile);
+        string result = await _fileUploder.UploadFile(formFile);
         return Ok(result);
     }
 }
